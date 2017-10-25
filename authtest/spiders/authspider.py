@@ -26,8 +26,8 @@ class authspider(scrapy.Spider):
         token = response.xpath("//body/div[@class='ui grid page center aligned']/div[1]/div[1]/form/div/input[2]/@value").extract()[0]
         #每建立一次连接，都会生成一个token来表示用户身份
         self.logger.debug("token :"+token)
-        yield scrapy.FormRequest.from_response(response,headers = self.headers,formdata={'user[login]':'15527519386@163.com',
-                                                            'user[password]':'112358',
+        yield scrapy.FormRequest.from_response(response,headers = self.headers,formdata={'user[login]':'155275xxxx@163.com',
+                                                            'user[password]':'xxxxxx',
                                                                 'authenticity_token':token},callback = self.after_login)
     def after_login(self,response):
         print response
